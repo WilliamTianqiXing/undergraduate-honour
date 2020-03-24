@@ -1,0 +1,418 @@
+function[F200701,F200702, F200703, F200704,F200705,F200706, F200707, F200708, F200709,F200710, F200711, F200712] = ret2007month(F2007)
+
+F200701 = F2007(1:1487,:);
+F200702 = F2007(1488:2831,:);
+F200703 = F2007(2832:4319,:);
+F200704 = F2007(4320:5759,:);
+F200705 = F2007(5760:7247,:);
+F200706 = F2007(7248:8687,:);
+F200707 = F2007(8688:10175,:);
+F200708 = F2007(10176:11663,:);
+F200709 = F2007(11664:13103,:);
+F200710 = F2007(13104:14591,:);
+F200711 = F2007(14592:16031,:);
+F200712 = F2007(16032:17520,:);
+F2007
+
+NEE200801 = ave_NEE_try1(F200801,2008,1);
+NEE200802 = ave_NEE_try1(F200802,2008,2);
+NEE200803 = ave_NEE_try1(F200803,2008,3);
+NEE200804 = ave_NEE_try1(F200804,2008,4);
+NEE200805 = ave_NEE_try1(F200805,2008,5);
+NEE200806 = ave_NEE_try1(F200806,2008,6);
+NEE200807 = ave_NEE_try1(F200807,2008,7);
+NEE200808 = ave_NEE_try1(F200808,2008,8);
+NEE200809 = ave_NEE_try1(F200809,2008,9);
+NEE200810 = ave_NEE_try1(F200810,2008,10);
+NEE200811 = ave_NEE_try1(F200811,2008,11);
+NEE200812 = ave_NEE_try1(F200812,2008,12);
+
+NEE200801 = [NEEtime NEE200801];
+NEE200802 = [NEEtime NEE200802];
+NEE200803 = [NEEtime NEE200803];
+NEE200804 = [NEEtime NEE200804];
+NEE200805 = [NEEtime NEE200805];
+NEE200806 = [NEEtime NEE200806];
+NEE200807 = [NEEtime NEE200807];
+NEE200808 = [NEEtime NEE200808];
+NEE200809 = [NEEtime NEE200809];
+NEE200810 = [NEEtime NEE200810];
+NEE200811 = [NEEtime NEE200811];
+NEE200812 = [NEEtime NEE200812];
+
+plot(NEE200801(:,1),NEE200801(:,2));
+hold on;
+plot(NEE200802(:,1),NEE200802(:,2));
+plot(NEE200803(:,1),NEE200803(:,2));
+plot(NEE200804(:,1),NEE200804(:,2));
+plot(NEE200805(:,1),NEE200805(:,2));
+plot(NEE200806(:,1),NEE200806(:,2));
+plot(NEE200807(:,1),NEE200807(:,2));
+plot(NEE200808(:,1),NEE200808(:,2));
+plot(NEE200809(:,1),NEE200809(:,2));
+plot(NEE200810(:,1),NEE200810(:,2));
+plot(NEE200811(:,1),NEE200811(:,2));
+plot(NEE200812(:,1),NEE200812(:,2));
+
+
+xlabel('Local time (hours)');
+ylabel('NEE 2007 (¦Ìmol m^-2 s^-1)');
+
+
+ plot(NEE200704(:,1),NEE200704(:,2));
+hold on;
+plot(NEE200705(:,1),NEE200705(:,2));
+plot(NEE200706(:,1),NEE200706(:,2));
+plot(NEE200707(:,1),NEE200707(:,2));
+plot(NEE200708(:,1),NEE200708(:,2));
+plot(NEE200709(:,1),NEE200709(:,2));
+plot(NEE200710(:,1),NEE200710(:,2));
+legend('Apr','May','Jun','Jul','Aug','Sept','Oct');
+
+title('Diurnal ensemble 30-minute avergaes of gap filled NEE for 2008');
+
+xlabel('Local time (hours)');
+ylabel('NEE 2007 (umol m^-2 s^-1)');
+legend('location','southwest');
+
+
+F200801 = F2008(1:1487,:);
+F200802 = F2008(1488:2879,:);
+F200803 = F2008(2880:4367,:);
+F200804 = F2008(4368:5807,:);
+F200805 = F2008(5808:7295,:);
+F200806 = F2008(7296:8735,:);
+F200807 = F2008(8736:10223,:);
+F200808 = F2008(10224:11711,:);
+F200809 = F2008(11712:13151,:);
+F200810 = F2008(13152:14639,:);
+F200811 = F2008(14640:16079,:);
+F200812 = F2008(16080:17568,:);
+
+
+plot(NEE200804(:,1),NEE200804(:,2));
+hold on;
+plot(NEE200805(:,1),NEE200805(:,2));
+plot(NEE200806(:,1),NEE200806(:,2));
+plot(NEE200807(:,1),NEE200807(:,2));
+plot(NEE200808(:,1),NEE200808(:,2));
+plot(NEE200809(:,1),NEE200809(:,2));
+plot(NEE200810(:,1),NEE200810(:,2));
+legend('Apr','May','Jun','Jul','Aug','Sept','Oct');
+title('Diurnal ensemble 30-minute avergaes of gap filled NEE for 2008 (April : October)');
+xlabel('Local time (hours)');
+ylabel('NEE 2007 (umol m^-2 s^-1)');
+legend('location','southwest');
+
+
+
+F200901 = F2009(1:1487,:);
+F200902 = F2009(1488:2831,:);
+F200903 = F2009(2832:4319,:);
+F200904 = F2009(4320:5759,:);
+F200905 = F2009(5760:7247,:);
+F200906 = F2009(7248:8687,:);
+F200907 = F2009(8688:10175,:);
+F200908 = F2009(10176:11663,:);
+F200909 = F2009(11664:13103,:);
+F200910 = F2009(13104:14591,:);
+F200911 = F2009(14592:16031,:);
+F200912 = F2009(16032:17520,:);
+
+NEE200901 = ave_NEE_try1(F200901,2009,1);
+NEE200902 = ave_NEE_try1(F200902,2009,2);
+NEE200903 = ave_NEE_try1(F200903,2009,3);
+NEE200904 = ave_NEE_try1(F200904,2009,4);
+NEE200905 = ave_NEE_try1(F200905,2009,5);
+NEE200906 = ave_NEE_try1(F200906,2009,6);
+NEE200907 = ave_NEE_try1(F200907,2009,7);
+NEE200908 = ave_NEE_try1(F200908,2009,8);
+NEE200909 = ave_NEE_try1(F200909,2009,9);
+NEE200910 = ave_NEE_try1(F200910,2009,10);
+NEE200911 = ave_NEE_try1(F200911,2009,11);
+NEE200912 = ave_NEE_try1(F200912,2009,12);
+
+NEE200901 = [NEEtime NEE200901];
+NEE200902 = [NEEtime NEE200902];
+NEE200903 = [NEEtime NEE200903];
+NEE200904 = [NEEtime NEE200904];
+NEE200905 = [NEEtime NEE200905];
+NEE200906 = [NEEtime NEE200906];
+NEE200907 = [NEEtime NEE200907];
+NEE200908 = [NEEtime NEE200908];
+NEE200909 = [NEEtime NEE200909];
+NEE200910 = [NEEtime NEE200910];
+NEE200911 = [NEEtime NEE200911];
+NEE200912 = [NEEtime NEE200912];
+
+plot(NEE200904(:,1),NEE200904(:,2));
+hold on;
+plot(NEE200905(:,1),NEE200905(:,2));
+plot(NEE200906(:,1),NEE200906(:,2));
+plot(NEE200907(:,1),NEE200907(:,2));
+plot(NEE200908(:,1),NEE200908(:,2));
+plot(NEE200909(:,1),NEE200909(:,2));
+plot(NEE200910(:,1),NEE200910(:,2));
+legend('Apr','May','Jun','Jul','Aug','Sept','Oct');
+title('Diurnal ensemble 30-minute avergaes of gap filled NEE for 2009 (April : October)');
+xlabel('Local time (hours)');
+ylabel('NEE 2009 (umol m^-2 s^-1)');
+legend('location','southwest');
+
+
+F201001 = F2010(1:1487,:);
+F201002 = F2010(1488:2831,:);
+F201003 = F2010(2832:4319,:);
+F201004 = F2010(4320:5759,:);
+F201005 = F2010(5760:7247,:);
+F201006 = F2010(7248:8687,:);
+F201007 = F2010(8688:10175,:);
+F201008 = F2010(10176:11663,:);
+F201009 = F2010(11664:13103,:);
+F201010 = F2010(13104:14591,:);
+F201011 = F2010(14592:16031,:);
+F201012 = F2010(16032:17520,:);
+
+NEE201001 = ave_NEE_try1(F201001,2010,1);
+NEE201002 = ave_NEE_try1(F201002,2010,2);
+NEE201003 = ave_NEE_try1(F201003,2010,3);
+NEE201004 = ave_NEE_try1(F201004,2010,4);
+NEE201005 = ave_NEE_try1(F201005,2010,5);
+NEE201006 = ave_NEE_try1(F201006,2010,6);
+NEE201007 = ave_NEE_try1(F201007,2010,7);
+NEE201008 = ave_NEE_try1(F201008,2010,8);
+NEE201009 = ave_NEE_try1(F201009,2010,9);
+NEE201010 = ave_NEE_try1(F201010,2010,10);
+NEE201011 = ave_NEE_try1(F201011,2010,11);
+NEE201012 = ave_NEE_try1(F201012,2010,12);
+
+NEE201001 = [NEEtime NEE201001];
+NEE201002 = [NEEtime NEE201002];
+NEE201003 = [NEEtime NEE201003];
+NEE201004 = [NEEtime NEE201004];
+NEE201005 = [NEEtime NEE201005];
+NEE201006 = [NEEtime NEE201006];
+NEE201007 = [NEEtime NEE201007];
+NEE201008 = [NEEtime NEE201008];
+NEE201009 = [NEEtime NEE201009];
+NEE201010 = [NEEtime NEE201010];
+NEE201011 = [NEEtime NEE201011];
+NEE201012 = [NEEtime NEE201012];
+
+plot(NEE201004(:,1),NEE201004(:,2));
+hold on;
+plot(NEE201005(:,1),NEE201005(:,2));
+plot(NEE201006(:,1),NEE201006(:,2));
+plot(NEE201007(:,1),NEE201007(:,2));
+plot(NEE201008(:,1),NEE201008(:,2));
+plot(NEE201009(:,1),NEE201009(:,2));
+plot(NEE201010(:,1),NEE201010(:,2));
+legend('Apr','May','Jun','Jul','Aug','Sept','Oct');
+title('Diurnal ensemble 30-minute avergaes of gap filled NEE for 2010 (April : October)');
+xlabel('Local time (hours)');
+ylabel('NEE 2010 (umol m^-2 s^-1)');
+legend('location','southwest');
+
+F201101 = F2011(1:1487,:);
+F201102 = F2011(1488:2831,:);
+F201103 = F2011(2832:4319,:);
+F201104 = F2011(4320:5759,:);
+F201105 = F2011(5760:7247,:);
+F201106 = F2011(7248:8687,:);
+F201107 = F2011(8688:10175,:);
+F201108 = F2011(10176:11663,:);
+F201109 = F2011(11664:13103,:);
+F201110 = F2011(13104:14591,:);
+F201111 = F2011(14592:16031,:);
+F201112 = F2011(16032:17520,:);
+
+NEE201101 = ave_NEE_try1(F201101,2010,1);
+NEE201102 = ave_NEE_try1(F201102,2010,2);
+NEE201103 = ave_NEE_try1(F201103,2010,3);
+NEE201104 = ave_NEE_try1(F201104,2010,4);
+NEE201105 = ave_NEE_try1(F201105,2010,5);
+NEE201106 = ave_NEE_try1(F201106,2010,6);
+NEE201107 = ave_NEE_try1(F201107,2010,7);
+NEE201108 = ave_NEE_try1(F201108,2010,8);
+NEE201109 = ave_NEE_try1(F201109,2010,9);
+NEE201110 = ave_NEE_try1(F201110,2010,10);
+NEE201111 = ave_NEE_try1(F201111,2010,11);
+NEE201112 = ave_NEE_try1(F201112,2010,12);
+
+NEE201101 = [NEEtime NEE201101];
+NEE201102 = [NEEtime NEE201102];
+NEE201103 = [NEEtime NEE201103];
+NEE201104 = [NEEtime NEE201104];
+NEE201105 = [NEEtime NEE201105];
+NEE201106 = [NEEtime NEE201106];
+NEE201107 = [NEEtime NEE201107];
+NEE201108 = [NEEtime NEE201108];
+NEE201109 = [NEEtime NEE201109];
+NEE201110 = [NEEtime NEE201110];
+NEE201111 = [NEEtime NEE201111];
+NEE201112 = [NEEtime NEE201112];
+
+plot(NEE201104(:,1),NEE201104(:,2));
+hold on;
+plot(NEE201105(:,1),NEE201105(:,2));
+plot(NEE201106(:,1),NEE201106(:,2));
+plot(NEE201107(:,1),NEE201107(:,2));
+plot(NEE201108(:,1),NEE201108(:,2));
+plot(NEE201109(:,1),NEE201109(:,2));
+plot(NEE201110(:,1),NEE201110(:,2));
+legend('Apr','May','Jun','Jul','Aug','Sept','Oct');
+title('Diurnal ensemble 30-minute avergaes of gap filled NEE for 2011 (April : October)');
+xlabel('Local time (hours)');
+ylabel('NEE 2011 (umol m^-2 s^-1)');
+legend('location','southwest');
+
+F201201 = F2012(1:1487,:);
+F201202 = F2012(1488:2879,:);
+F201203 = F2012(2880:4367,:);
+F201204 = F2012(4368:5807,:);
+F201205 = F2012(5808:7295,:);
+F201206 = F2012(7296:8735,:);
+F201207 = F2012(8736:10223,:);
+F201208 = F2012(10224:11711,:);
+F201209 = F2012(11712:12816,:);
+
+NEE201201 = ave_NEE_try1(F201201,2012,1);
+NEE201202 = ave_NEE_try1(F201202,2012,2);
+NEE201203 = ave_NEE_try1(F201203,2012,3);
+NEE201204 = ave_NEE_try1(F201204,2012,4);
+NEE201205 = ave_NEE_try1(F201205,2012,5);
+NEE201206 = ave_NEE_try1(F201206,2012,6);
+NEE201207 = ave_NEE_try1(F201207,2012,7);
+NEE201208 = ave_NEE_try1(F201208,2012,8);
+NEE201209 = ave_NEE_try1(F201209,2012,9);
+
+NEE201201 = [NEEtime NEE201201];
+NEE201202 = [NEEtime NEE201202];
+NEE201203 = [NEEtime NEE201203];
+NEE201204 = [NEEtime NEE201204];
+NEE201205 = [NEEtime NEE201205];
+NEE201206 = [NEEtime NEE201206];
+NEE201207 = [NEEtime NEE201207];
+NEE201208 = [NEEtime NEE201208];
+NEE201209 = [NEEtime NEE201209];
+
+plot(NEE201204(:,1),NEE201204(:,2));
+hold on;
+plot(NEE201205(:,1),NEE201205(:,2));
+plot(NEE201206(:,1),NEE201206(:,2));
+plot(NEE201207(:,1),NEE201207(:,2));
+plot(NEE201208(:,1),NEE201208(:,2));
+plot(NEE201209(:,1),NEE201209(:,2));
+legend('Apr','May','Jun','Jul','Aug','Sept');
+title('Diurnal ensemble 30-minute avergaes of gap filled NEE for 2012 (April : September)');
+xlabel('Local time (hours)');
+ylabel('NEE 2012 (umol m^-2 s^-1)');
+legend('location','southwest');
+
+bar(anNEEtotal);
+title('Daily averaged NEE for 2007-2012(C)');
+ylabel('Daily half-hourly averaged NEE (umol m-2s-1)');
+xlabel('DOY');
+
+
+anT2007 = anT(F2007);
+anT2008 = anT(F2008);
+anT2009 = anT(F2009);
+anT2010 = anT(F2010);
+anT2011 = anT(F2011);
+anT2012 = anT(F2012);
+anTtotal = [anT2007;anT2008;anT2009;anT2010;anT2011;anT2012];
+bar(anTtotal);
+title('Daily averaged air temperature for 2007-2012(C)');
+ylabel('Daily half-hourly averaged T (C)');
+xlabel('DOY');
+
+anER2007 = anER(F2007);
+anER2008 = anER(F2008);
+anER2009 = anER(F2009);
+anER2010 = anER(F2010);
+anER2011 = anER(F2011);
+anER2012 = anER(F2012);
+anERtotal = [anER2007;anER2008;anER2009;anER2010;anER2011;anER2012];
+bar(anERtotal);
+title('Daily averaged ecosystem respiration for 2007-2012(umol m-2 s-1)');
+ylabel('Daily half-hourly ER (umol m-2s-1)');
+xlabel('DOY');
+
+
+cu2007 = cumulative2007(F2007pure);
+cu2008 = cumulative(F2008);
+cu2009 = cumulative(F2009);
+cu2010 = cumulative(F2010);
+cu2011 = cumulative(F2011);
+cu2012 = cumulative(F2012);
+
+cu2007_gC = cumulative2007_gC(F2007pure);
+cu2008_gC = cumulative_gC(F2008);
+cu2009_gC = cumulative_gC(F2009);
+cu2010_gC = cumulative_gC(F2010);
+cu2011_gC = cumulative_gC(F2011);
+cu2012_gC = zeros(365,4);
+cu2012_gC = cumulative_gC(F2012);
+cu2012_gC(266:365,2:4) = (cu2007_gC(180:279,2:4)+cu2008_gC(266:365,2:4)+cu2009_gC(266:365,2:4)+cu2010_gC(266:365,2:4)+cu2011_gC(266:365,2:4))./5;
+cu2012_gC(266:365,3) += 33.562;
+cu2012_gC(266:365,4) += 37.525;
+cu2012_gC(266:365,2) = cu2012_gC(266:365,3) .- cu2012_gC(266:365,4);
+cu2012_gC(266:365,1) = cu2011_gC(266:365,1);
+cu2012_gC_est = cu2012_gC(266:365,:);
+
+plot(cu2007_gC(:,1),cu2007_gC(:,2),'linestyle',':','color','blue');
+hold on;
+plot(cu2007_gC(:,1),cu2007_gC(:,3),'linestyle','-','color','blue');
+plot(cu2007_gC(:,1),cu2007_gC(:,4),'linestyle','--','color','blue');
+plot(cu2008_gC(:,1),cu2008_gC(:,2),'linestyle',':','color','cyan');
+plot(cu2008_gC(:,1),cu2008_gC(:,3),'linestyle','-','color','cyan');
+plot(cu2008_gC(:,1),cu2008_gC(:,4),'linestyle','--','color','cyan');
+plot(cu2009_gC(:,1),cu2009_gC(:,2),'linestyle',':','color','green');
+plot(cu2009_gC(:,1),cu2009_gC(:,3),'linestyle','-','color','green');
+plot(cu2009_gC(:,1),cu2009_gC(:,4),'linestyle','--','color','green');
+plot(cu2010_gC(:,1),cu2010_gC(:,2),'linestyle',':','color','magenta');
+plot(cu2010_gC(:,1),cu2010_gC(:,3),'linestyle','-','color','magenta');
+plot(cu2010_gC(:,1),cu2010_gC(:,4),'linestyle','--','color','magenta');
+plot(cu2011_gC(:,1),cu2011_gC(:,2),'linestyle',':','color','red');
+plot(cu2011_gC(:,1),cu2011_gC(:,3),'linestyle','-','color','red');
+plot(cu2011_gC(:,1),cu2011_gC(:,4),'linestyle','--','color','red');
+plot(cu2012_gC(:,1),cu2012_gC(:,2),'linestyle',':','color','yellow');
+plot(cu2012_gC(:,1),cu2012_gC(:,3),'linestyle','-','color','yellow');
+plot(cu2012_gC(:,1),cu2012_gC(:,4),'linestyle','--','color','yellow');
+
+plot(cu2008(:,1),cu2008(:,2),'linestyle',':','color','cyan');
+hold on;
+plot(cu2008(:,1),cu2008(:,3),'linestyle','-','color','cyan');
+plot(cu2008(:,1),cu2008(:,4),'linestyle','--','color','cyan');
+plot(cu2009(:,1),cu2009(:,2),'linestyle',':','color','green');
+plot(cu2009(:,1),cu2009(:,3),'linestyle','-','color','green');
+plot(cu2009(:,1),cu2009(:,4),'linestyle','--','color','green');
+plot(cu2010(:,1),cu2010(:,2),'linestyle',':','color','magenta');
+plot(cu2010(:,1),cu2010(:,3),'linestyle','-','color','magenta');
+plot(cu2010(:,1),cu2010(:,4),'linestyle','--','color','magenta');
+plot(cu2011(:,1),cu2011(:,2),'linestyle',':','color','red');
+plot(cu2011(:,1),cu2011(:,3),'linestyle','-','color','red');
+plot(cu2011(:,1),cu2011(:,4),'linestyle','--','color','red');
+
+legend('NEE08','ER08','GEP08','NEE09','ER09','GEP09','NEE10','ER10','GEP10','NEE11','ER11','GEP11');
+legend('location','northwestoutside');
+w2010 = F2010(:,12:3);
+[wr2010,count4,speeds4,directions4,Table4] = windrose_matscript_try1(w2010(:,1),w2010(:,2),'labels',{'N','S','E','W'});
+
+
+
+anPPFD2007 = anPPFD(F2007);
+anPPFD2008 = anPPFD(F2008);
+anPPFD2009 = anPPFD(F2009);
+anPPFD2010 = anPPFD(F2010);
+anPPFD2011 = anPPFD(F2011);
+anPPFD2012 = anPPFD(F2012);
+anPPFDtotal = [anPPFD2007;anPPFD2008;anPPFD2009;anPPFD2010;anPPFD2011;anPPFD2012];
+bar(anPPFDtotal);
+title('Daily averaged photosynthetic photon flux density for 2007-2012(umol m-2 d-1)');
+ylabel('Daily PPFD (umol m-2 d-1)');
+xlabel('DOY');
+
+
+

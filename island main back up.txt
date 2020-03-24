@@ -1,0 +1,333 @@
+main back up island
+
+DS2007 = dir_sp(I2007);
+DS2008 = dir_sp(I2008);
+DS2009 = dir_sp(I2009);
+DS2010 = dir_sp(I2010);
+DS2011 = dir_sp(I2011);
+DS2012 = dir_sp(I2012);
+
+D2007 = DS2007(:,1);
+D2008 = DS2008(:,1);
+D2009 = DS2009(:,1);
+D2010 = DS2010(:,1);
+D2011 = DS2011(:,1);
+D2012 = DS2012(:,1);
+S2007 = DS2007(:,2);
+S2008 = DS2008(:,2);
+S2009 = DS2009(:,2);
+S2010 = DS2010(:,2);
+S2011 = DS2011(:,2);
+S2012 = DS2012(:,2);
+
+wind_rose_try2(D2007,S2007);
+
+
+[0.061800,0.052000,0.078800,0.044400,0.076400,0.083800;3.431900,3.535850,3.616900,3.736850,3.828575,3.526025;    5.282700,5.387200,5.361300,5.594400,5.605550,5.389700;7.304400,7.490400,7.340500,7.431700,7.226450,7.253650;   19.479000,20.164800,22.810700,15.459800,15.579700,15.694800;5.217929,5.337090,5.315612,5.549553,5.564400,5.337216;   5.347471,5.437310	,5.406988	,5.639247,5.646700,5.442184;13.113,13.422	,12.926	,12.974	,12.323	,12.845]
+
+wind_rose_try2(D2008,S2008,'di',[5 3.61 5.44 7.34 12.93 22.82])
+
+
+----------------------------------------------------------------------------------------------
+figure of co2 gf 2008 2009 2011 2012:
+
+%averaged m-2 s-2
+CO2_08 = anCO2(I2008gf);
+CO2_09 = anCO2(I2009gf);
+CO2_11 = anCO2(I2011gf);
+CO2_12 = anCO2(I2012gf);
+
+bar(CO2_08);
+xlabel('DOY');
+ylabel('umol m-2 s-1');
+title('ResCO2:08');
+
+bar(CO2_09);
+xlabel('DOY');
+ylabel('umol m-2 s-1');
+title('ResCO2:09');
+
+bar(CO2_11);
+xlabel('DOY');
+ylabel('umol m-2 s-1');
+title('ResCO2:11');
+
+bar(CO2_12);
+xlabel('DOY');
+ylabel('umol m-2 s-1');
+title('ResCO2:12');
+
+%averaged m-2 d-1
+CO2_08d = anCO2(I2008gf);
+CO2_09d = anCO2(I2009gf);
+CO2_11d = anCO2(I2011gf);
+CO2_12d = anCO2(I2012gf);
+
+%averaged m-2 d-1 gC
+CO2_08d = anCO2_gC(I2008gf);
+CO2_09d = anCO2_gC(I2009gf);
+CO2_11d = anCO2_gC(I2011gf);
+CO2_12d = anCO2_gC(I2012gf);
+
+%plot of daily averaged co2 fux
+plot(CO2_08d,'color','k');
+hold on;
+plot(CO2_09d,'color','g');
+plot(CO2_11d,'color','r');
+plot(CO2_12d,'color','m');
+legend('2008','2009','2011','2012');
+legend('location','northwest');
+xlim([0 366]);
+xlabel('Day of year');
+ylabel('Daily averaged CO2 flux (g C m-2 d-1)');
+title('Daily averaged CO2 flux at flooded site (2008, 2009, 2011, 2012)');
+
+bar(CO2_08d);
+xlabel('DOY');
+ylabel('umol m-2 s-1');
+title('ResCO2:08');
+
+bar(CO2_09d);
+xlabel('DOY');
+ylabel('umol m-2 s-1');
+title('ResCO2:09');
+
+bar(CO2_11d);
+xlabel('DOY');
+ylabel('umol m-2 s-1');
+title('ResCO2:11');
+
+bar(CO2_12d);
+xlabel('DOY');
+ylabel('umol m-2 s-1');
+title('ResCO2:12');
+
+
+CO2cu_08=CO2cu(I2008gf);
+CO2cu_09=CO2cu(I2009gf);
+CO2cu_11=CO2cu(I2011gf);
+CO2cu_12=CO2cu2012(I2012gf);
+CO2cu_12_est=(CO2cu_08(266:365,:)+CO2cu_09(266:365,:)+CO2cu_11(266:365,:))./3;
+CO2cu_12_est(:,2) -= 25.881;
+
+plot(CO2cu_08(:,1),CO2cu_08(:,2));
+hold on;
+plot(CO2cu_09(:,1),CO2cu_09(:,2));
+plot(CO2cu_11(:,1),CO2cu_11(:,2));
+plot(CO2cu_12(:,1),CO2cu_12(:,2));
+plot(CO2cu_12_est(:,1),CO2cu_12_est(:,2));
+legend('2008','2009','2011','2012','2012est');
+legend('location','northwest');
+xlim([0 366]);
+xlabel('Day of year');
+ylabel('Cumulative CO2 flux (g C m-2 d-1)');
+title('Cumulative CO2 flux at reservoir site (2008, 2009, 2011, 2012 with estimation)');
+
+CO2cu_12_est=(CO2cu_08(266:365,:)+CO2cu_09(266:365,:)+CO2cu_11(266:365,:))./3;
+%anTres
+anTRes_08d = anTRes(I2008gf);
+anTRes_09d = anTRes(I2009gf);
+anTRes_11d = anTRes(I2011gf);
+anTRes_12d = anTRes(I2012gf);
+anTRes_total_std = nan(2007,1);
+anTRes_total_std(280:645,:) = anTRes_08d;
+anTRes_total_std(646:1010,:) = anTRes_09d;
+anTRes_total_std(1376:1740,:) = anTRes_11d;
+anTRes_total_std(1741:2004,:) = anTRes_11d;
+plot(anTRes_total_std);
+xlabel('Day count since March 28, 2007; ends on Sept. 20, 2012 (DC = 2004)');
+ylabel('Daily averaged T (C)');
+axis([0 2004 -30 20]);
+title('Plot of daily averaged air temperature of flooded site (2008, 2009, 2011, 2012)');
+
+NET effect----------------------------------------------------------------------
+
+cu2008_gC = cu2008(:,2) ./ 44 .* 12;
+cu2009_gC = cu2009(:,2) ./ 44 .* 12;
+cu2011_gC = cu2011(:,2) ./ 44 .* 12;
+cu2012_gC = cu2012(1:265,2) ./ 44 .* 12;
+
+NET2008 = CO2cu_08(:,2) - cu2008_gC;
+plot(cu2008_gC);
+hold on;
+plot(CO2cu_08(:,2));
+plot(NET2008, 'color', 'k');
+
+legend('NEE_F_o_r_e_s_t','CO2_R_e_s_e_r_v_o_i_r','Net CO2 effect');
+xlabel('Day of year');
+ylabel('g C m-2 d-1');
+title('Net effect of CO2 exchange, 2008');
+legend('location','northwest');
+axis([0 366 -200 300]);
+
+
+NET2009 = CO2cu_09(:,2) - cu2009_gC;
+plot(cu2009_gC);
+hold on;
+plot(CO2cu_09(:,2));
+plot(NET2009, 'color', 'k');
+
+legend('NEE_F_o_r_e_s_t','CO2_R_e_s_e_r_v_o_i_r','Net CO2 effect');
+xlabel('Day of year');
+ylabel('g CO2 m-2 d-1');
+title('Net effect of CO2 exchange, 2009');
+legend('location','northwest');
+axis([0 366 -200 300]);
+
+NET2011 = CO2cu_11(:,2) - cu2011_gC;
+plot(cu2011_gC,'color','b');
+hold on;
+plot(CO2cu_11(:,2),'color','r');
+plot(NET2011, 'color', 'k');
+
+legend('NEE_F_o_r_e_s_t','CO2_R_e_s_e_r_v_o_i_r','Net CO2 effect');
+xlabel('Day of year');
+ylabel('g CO2 m-2 d-1');
+title('Net effect of CO2 exchange, 2011');
+legend('location','northwest');
+axis([0 366 -200 300]);
+
+NET2012 = CO2cu_12(:,2) - cu2012_gC;
+plot(cu2012_gC,'color','b');
+hold on;
+plot(CO2cu_12(:,2),'color','r');
+plot(NET2012, 'color', 'k');
+plot(cu2012_gC_est(:,1),cu2012_gC_est(:,2), 'color','b','linestyle','--');
+plot(CO2cu_12_est(:,1),CO2cu_12_est(:,2), 'color','r','linestyle','--');
+NET2012est = CO2cu_12_est - cu2012_gC_est(:,2);
+NET2012est(:,1) = CO2cu_12_est(:,1);
+plot(NET2012est(:,1),NET2012est(:,2), 'color','k','linestyle','--');
+legend('NEE_F_o_r_e_s_t','CO2_R_e_s_e_r_v_o_i_r','Net CO2 effect','NEE_F_o_r_e_s_test','CO2_R_e_s_e_r_v_o_i_rest','Net CO2 effect est');
+xlabel('Day of year');
+ylabel('g CO2 m-2 d-1');
+title('Net effect of CO2 exchange, 2012');
+legend('location','northwest');
+axis([0 366 -200 300]);
+
+
+
+
+---island diurnal pattern---------------------------
+I0801 = diurnal_CO2(I2008gf(1:1488,:),8,1);
+plot(I0801,'linestyle','-','color','b');
+hold on;
+I0802 = diurnal_CO2(I2008gf(1489:2880,:),8,2);
+plot(I0802,'linestyle','-','color','r');
+I0803 = diurnal_CO2(I2008gf(2881:4368,:),8,3);
+plot(I0803,'linestyle','-','color','g');
+I0804 = diurnal_CO2(I2008gf(4369:5808,:),8,4);
+plot(I0804,'linestyle','-','color','m');
+I0805 = diurnal_CO2(I2008gf(5809:7296,:),8,5);
+plot(I0805,'linestyle','--','color','b');
+I0806 = diurnal_CO2(I2008gf(7297:8736,:),8,6);
+plot(I0806,'linestyle','--','color','r');
+I0807 = diurnal_CO2(I2008gf(8737:10224,:),8,7);
+plot(I0807,'linestyle','--','color','g');
+I0808 = diurnal_CO2(I2008gf(10225:11712,:),8,8);
+plot(I0808,'linestyle','--','color','m');
+I0809 = diurnal_CO2(I2008gf(11713:13152,:),8,9);
+plot(I0809,'linestyle','-.','color','b');
+I0810 = diurnal_CO2(I2008gf(13153:14640,:),8,10);
+plot(I0810,'linestyle','-.','color','r');
+I0811 = diurnal_CO2(I2008gf(14641:16080,:),8,11);
+plot(I0811,'linestyle','-.','color','g');
+I0812 = diurnal_CO2(I2008gf(16081:17568,:),8,12);
+plot(I0812,'linestyle','-.','color','m');
+legend('1','2','3','4','5','6','7','8','9','10','11','12','location','northeastoutside');
+title('Diurnal CO2 for 2008');
+xlabel('Time (in terms of 30-minute)');
+axis([0 48 -0.5 1.5]);
+ylabel('CO2 flux umol m-2 s-1');
+
+I0901 = diurnal_CO2(I2009gf(1:1488,:),9,1);
+plot(I0901,'linestyle','-','color','b');
+hold on;
+I0902 = diurnal_CO2(I2009gf(1489:2832,:),9,2);
+plot(I0902,'linestyle','-','color','r');
+I0903 = diurnal_CO2(I2009gf(2833:4320,:),9,3);
+plot(I0903,'linestyle','-','color','g');
+I0904 = diurnal_CO2(I2009gf(4321:5760,:),9,4);
+plot(I0904,'linestyle','-','color','m');
+I0905 = diurnal_CO2(I2009gf(5761:7248,:),9,5);
+plot(I0905,'linestyle','--','color','b');
+I0906 = diurnal_CO2(I2009gf(7249:8688,:),9,6);
+plot(I0906,'linestyle','--','color','r');
+I0907 = diurnal_CO2(I2009gf(8689:10176,:),9,7);
+plot(I0907,'linestyle','--','color','g');
+I0908 = diurnal_CO2(I2009gf(10177:11664,:),9,8);
+plot(I0908,'linestyle','--','color','m');
+I0909 = diurnal_CO2(I2009gf(11665:13104,:),9,9);
+plot(I0909,'linestyle','-.','color','b');
+I0910 = diurnal_CO2(I2009gf(13105:14592,:),9,10);
+plot(I0910,'linestyle','-.','color','r');
+I0911 = diurnal_CO2(I2009gf(14593:16032,:),9,11);
+plot(I0911,'linestyle','-.','color','g');
+I0912 = diurnal_CO2(I2009gf(16033:17520,:),9,12);
+plot(I0912,'linestyle','-.','color','m');
+legend('1','2','3','4','5','6','7','8','9','10','11','12','location','northeastoutside');
+title('Diurnal CO2 for 2009');
+xlabel('Time (in terms of 30-minute)');
+axis([0 48 -0.5 1.5]);
+ylabel('CO2 flux umol m-2 s-1');
+
+I1101 = diurnal_CO2(I2011gf(1:1488,:),11,1);
+plot(I1101,'linestyle','-','color','b');
+hold on;
+I1102 = diurnal_CO2(I2011gf(1489:2832,:),11,2);
+plot(I1102,'linestyle','-','color','r');
+I1103 = diurnal_CO2(I2011gf(2833:4320,:),11,3);
+plot(I1103,'linestyle','-','color','g');
+I1104 = diurnal_CO2(I2011gf(4321:5760,:),11,4);
+plot(I1104,'linestyle','-','color','m');
+I1105 = diurnal_CO2(I2011gf(5761:7248,:),11,5);
+plot(I1105,'linestyle','--','color','b');
+I1106 = diurnal_CO2(I2011gf(7249:8688,:),11,6);
+plot(I1106,'linestyle','--','color','r');
+I1107 = diurnal_CO2(I2011gf(8689:10176,:),11,7);
+plot(I1107,'linestyle','--','color','g');
+I1108 = diurnal_CO2(I2011gf(10177:11664,:),11,8);
+plot(I1108,'linestyle','--','color','m');
+I1109 = diurnal_CO2(I2011gf(11665:13104,:),11,9);
+plot(I1109,'linestyle','-.','color','b');
+I1110 = diurnal_CO2(I2011gf(13105:14592,:),11,10);
+plot(I1110,'linestyle','-.','color','r');
+I1111 = diurnal_CO2(I2011gf(14593:16032,:),11,11);
+plot(I1111,'linestyle','-.','color','g');
+I1112 = diurnal_CO2(I2011gf(16033:17520,:),11,12);
+plot(I1112,'linestyle','-.','color','m');
+legend('1','2','3','4','5','6','7','8','9','10','11','12','location','northeastoutside');
+title('Diurnal CO2 for 2011');
+xlabel('Time (in terms of 30-minute)');
+axis([0 48 -0.5 1.5]);
+ylabel('CO2 flux umol m-2 s-1');
+
+I1201 = diurnal_CO2(I2012gf(1:1488,:),8,1);
+plot(I1201,'linestyle','-','color','b');
+hold on;
+I1202 = diurnal_CO2(I2012gf(1489:2880,:),8,2);
+plot(I1202,'linestyle','-','color','r');
+I1203 = diurnal_CO2(I2012gf(2881:4368,:),8,3);
+plot(I1203,'linestyle','-','color','g');
+I1204 = diurnal_CO2(I2012gf(4369:5808,:),8,4);
+plot(I1204,'linestyle','-','color','m');
+I1205 = diurnal_CO2(I2012gf(5809:7296,:),8,5);
+plot(I1205,'linestyle','--','color','b');
+I1206 = diurnal_CO2(I2012gf(7297:8736,:),8,6);
+plot(I1206,'linestyle','--','color','r');
+I1207 = diurnal_CO2(I2012gf(8737:10224,:),8,7);
+plot(I1207,'linestyle','--','color','g');
+I1208 = diurnal_CO2(I2012gf(10225:11712,:),8,8);
+plot(I1208,'linestyle','--','color','m');
+I1209 = diurnal_CO2(I2012gf(11713:12702,:),8,9);
+plot(I1209,'linestyle','-.','color','b');
+legend('1','2','3','4','5','6','7','8','9','location','northeastoutside');
+title('Diurnal CO2 for 2012');
+xlabel('Time (in terms of 30-minute)');
+axis([0 48 -0.5 1.5]);
+ylabel('CO2 flux umol m-2 s-1');
+
+
+
+
+
+

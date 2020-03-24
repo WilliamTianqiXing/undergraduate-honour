@@ -1,0 +1,12 @@
+function[v] = anTRes(yeardata)
+d = size(yeardata,1) / 48;
+v = zeros(size(d,1),1);
+for i = 1:d
+  FC = 0;
+  for j = 1:48
+    location = (i - 1) * 48 + 1;
+    FC = FC + yeardata(location + j - 1, 9)
+  endfor
+  FC = FC / 48;
+  v(i,1) = FC;
+endfor
